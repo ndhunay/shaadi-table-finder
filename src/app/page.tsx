@@ -16,7 +16,7 @@ interface SearchResult extends Guest {
 }
 
 // Configuration - Update this with your Google Sheet ID
-const GOOGLE_SHEET_ID = '1FTotgAg8IZwCr--xU8EHcuLdF_hVeZZrypioJHUT8Lk'
+const GOOGLE_SHEET_ID = 'YOUR_GOOGLE_SHEET_ID_HERE'
 const SHEET_NAME = 'Sheet1' // Change if your sheet has a different name
 
 // Decorative SVG Components
@@ -27,8 +27,8 @@ const Flourish = ({ className = '' }: { className?: string }) => (
   </svg>
 )
 
-const SparkleIcon = ({ className = '' }: { className?: string }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+const SparkleIcon = ({ className = '', style }: { className?: string; style?: React.CSSProperties }) => (
+  <svg className={className} style={style} viewBox="0 0 24 24" fill="currentColor">
     <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z" />
   </svg>
 )
