@@ -16,7 +16,7 @@ interface SearchResult extends Guest {
 }
 
 // Configuration - Update this with your Google Sheet ID
-const GOOGLE_SHEET_ID = 'YOUR_GOOGLE_SHEET_ID_HERE'
+const GOOGLE_SHEET_ID = '1FTotgAg8IZwCr--xU8EHcuLdF_hVeZZrypioJHUT8Lk'
 const SHEET_NAME = 'Sheet1' // Change if your sheet has a different name
 
 // Decorative SVG Components
