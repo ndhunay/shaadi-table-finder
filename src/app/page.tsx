@@ -16,20 +16,13 @@ interface SearchResult extends Guest {
 }
 
 // Configuration - Update this with your Google Sheet ID
-const GOOGLE_SHEET_ID = 'YOUR_GOOGLE_SHEET_ID_HERE'
+const GOOGLE_SHEET_ID = '1FTotgAg8IZwCr--xU8EHcuLdF_hVeZZrypioJHUT8Lk'
 const SHEET_NAME = 'Sheet1' // Change if your sheet has a different name
 
-// Decorative SVG Components
 const Flourish = ({ className = '' }: { className?: string }) => (
   <svg className={className} viewBox="0 0 100 100" fill="currentColor">
     <path d="M50 0 Q60 40 100 50 Q60 60 50 100 Q40 60 0 50 Q40 40 50 0Z" opacity="0.6" />
     <circle cx="50" cy="50" r="8" />
-  </svg>
-)
-
-const SparkleIcon = ({ className = '', style }: { className?: string; style?: React.CSSProperties }) => (
-  <svg className={className} style={style} viewBox="0 0 24 24" fill="currentColor">
-    <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z" />
   </svg>
 )
 
@@ -167,7 +160,11 @@ export default function TableFinder() {
     return (
       <div className="min-h-screen min-h-dvh flex items-center justify-center pattern-overlay">
         <div className="text-center animate-fade-in">
-          <div className="monogram text-6xl mb-4">M & R</div>
+          <img 
+            src="/mrlogo.png" 
+            alt="M & R" 
+            className="h-20 mx-auto mb-4"
+          />
           <div className="flex items-center gap-2 justify-center text-shaadi-red/60">
             <div className="w-2 h-2 bg-shaadi-red rounded-full animate-pulse" />
             <span className="font-body text-lg">Loading guest list...</span>
@@ -183,7 +180,11 @@ export default function TableFinder() {
     return (
       <div className="min-h-screen min-h-dvh flex items-center justify-center pattern-overlay p-6">
         <div className="text-center animate-fade-in max-w-md">
-          <div className="monogram text-5xl mb-6">M & R</div>
+          <img 
+            src="/mrlogo.png" 
+            alt="M & R" 
+            className="h-20 mx-auto mb-6"
+          />
           <div className="bg-white rounded-2xl p-6 shadow-lg">
             <p className="text-shaadi-red font-body text-lg mb-4">{error}</p>
             <button
@@ -267,7 +268,7 @@ export default function TableFinder() {
         <div className="fixed bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-shaadi-cream via-shaadi-cream to-transparent">
           <button
             onClick={handleSearchAgain}
-            className="btn-primary w-full text-white font-display font-semibold py-4 rounded-full text-lg flex items-center justify-center gap-2 shadow-xl"
+            className="btn-primary w-full text-white font-display font-semibold py-4 rounded-2xl text-lg flex items-center justify-center gap-2"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
@@ -291,39 +292,36 @@ export default function TableFinder() {
       <div className="h-2 bg-gradient-to-r from-shaadi-red via-shaadi-gold to-shaadi-red" />
 
       {/* Main Content */}
-      <div className="flex-1 flex flex-col items-center justify-center p-6">
+      <div className="flex-1 flex flex-col items-center justify-between p-6 py-10">
         <div className="w-full max-w-md animate-fade-in">
-          {/* Decorative Sparkles */}
-          <div className="flex justify-center gap-4 mb-6">
-            <SparkleIcon className="w-4 h-4 text-shaadi-gold animate-pulse" />
-            <SparkleIcon className="w-6 h-6 text-shaadi-red" />
-            <SparkleIcon className="w-4 h-4 text-shaadi-gold animate-pulse" style={{ animationDelay: '0.3s' }} />
-          </div>
-
-          {/* Monogram */}
-          <div className="text-center mb-2">
-            <span className="monogram text-7xl tracking-wide">M & R</span>
+          {/* Logo */}
+          <div className="text-center mb-6">
+            <img 
+              src="/mrlogo.png" 
+              alt="M & R" 
+              className="h-28 md:h-36 mx-auto logo-animate"
+            />
           </div>
 
           {/* Title */}
-          <h1 className="font-display text-4xl md:text-5xl font-bold text-shaadi-red-dark text-center mb-4 leading-tight">
+          <h1 className="font-display text-4xl md:text-5xl font-bold text-shaadi-red-dark text-center mb-5 leading-tight">
             Welcome to the<br />Shaadi Afterparty
           </h1>
 
           {/* Decorative Line */}
-          <div className="gold-line w-32 mx-auto mb-6" />
+          <div className="gold-line w-40 mx-auto mb-6" />
 
           {/* Subtitle */}
-          <p className="font-body text-xl text-shaadi-red/70 text-center mb-10 leading-relaxed">
+          <p className="font-body text-xl text-shaadi-red/70 text-center mb-12 leading-relaxed px-4">
             Please enter your first and last name to find your table assignment.
           </p>
 
           {/* Search Form */}
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-5">
             <div>
               <label
                 htmlFor="name-search"
-                className="block font-display text-sm font-semibold text-shaadi-red-dark uppercase tracking-wider mb-2"
+                className="block font-display text-sm font-semibold text-shaadi-red-dark uppercase tracking-wider mb-3"
               >
                 Enter Your Name
               </label>
@@ -334,12 +332,12 @@ export default function TableFinder() {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="e.g. John Smith"
-                  className="w-full bg-white border-2 border-shaadi-cream-dark focus:border-shaadi-red rounded-xl py-4 px-5 pr-12 font-body text-lg text-shaadi-red-dark placeholder:text-shaadi-red/30 shadow-sm transition-colors"
+                  className="input-field w-full rounded-2xl py-4 px-5 pr-12 font-body text-lg text-shaadi-red-dark placeholder:text-shaadi-red/30"
                   autoComplete="off"
                   autoCorrect="off"
                   autoCapitalize="words"
                 />
-                <div className="absolute right-4 top-1/2 -translate-y-1/2 text-shaadi-red/30">
+                <div className="absolute right-4 top-1/2 -translate-y-1/2 text-shaadi-red/40">
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path
                       strokeLinecap="round"
@@ -355,23 +353,23 @@ export default function TableFinder() {
             <button
               type="submit"
               disabled={!searchQuery.trim()}
-              className="btn-primary w-full text-white font-display font-semibold py-4 rounded-full text-lg shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+              className="btn-primary w-full text-white font-display font-semibold py-4 rounded-2xl text-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
             >
               Find My Table
             </button>
           </form>
 
           {/* Help Text */}
-          <p className="font-body text-shaadi-red/50 text-center mt-8 text-sm leading-relaxed">
+          <p className="font-body text-shaadi-red/50 text-center mt-10 text-sm leading-relaxed">
             If you cannot find your name, please visit the<br />
             <span className="text-shaadi-red/70 font-medium">concierge desk</span> at the entrance.
           </p>
         </div>
-      </div>
 
-      {/* Decorative Bottom Flourish */}
-      <div className="flex justify-center pb-8 opacity-20">
-        <Flourish className="w-12 h-12 text-shaadi-red" />
+        {/* Decorative Bottom Flourish */}
+        <div className="flex justify-center pt-6">
+          <Flourish className="w-16 h-16 text-shaadi-red bottom-flourish" />
+        </div>
       </div>
     </div>
   )

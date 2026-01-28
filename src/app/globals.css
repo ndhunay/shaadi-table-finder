@@ -75,15 +75,16 @@ input:focus {
 
 /* Gold accent line */
 .gold-line {
-  height: 2px;
+  height: 3px;
   background: linear-gradient(
     90deg,
     transparent 0%,
-    var(--shaadi-gold) 20%,
+    var(--shaadi-gold) 15%,
     var(--shaadi-gold-light) 50%,
-    var(--shaadi-gold) 80%,
+    var(--shaadi-gold) 85%,
     transparent 100%
   );
+  box-shadow: 0 2px 8px rgba(212, 168, 83, 0.3);
 }
 
 /* Card hover effect */
@@ -108,10 +109,11 @@ input:focus {
 
 /* Button styles */
 .btn-primary {
-  background: linear-gradient(135deg, var(--shaadi-red) 0%, var(--shaadi-red-dark) 100%);
+  background: linear-gradient(135deg, var(--shaadi-red-light) 0%, var(--shaadi-red) 50%, var(--shaadi-red-dark) 100%);
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 4px 15px rgba(139, 21, 56, 0.35);
 }
 
 .btn-primary::before {
@@ -124,7 +126,7 @@ input:focus {
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.2),
     transparent
   );
   transition: left 0.5s ease;
@@ -135,12 +137,13 @@ input:focus {
 }
 
 .btn-primary:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(139, 21, 56, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(139, 21, 56, 0.45);
 }
 
 .btn-primary:active {
   transform: translateY(0);
+  box-shadow: 0 4px 15px rgba(139, 21, 56, 0.35);
 }
 
 /* Table number badge */
@@ -167,4 +170,37 @@ input:focus {
   width: 100%;
   height: 100%;
   fill: var(--shaadi-red);
+}
+
+/* Enhanced input field */
+.input-field {
+  background: white;
+  border: 2px solid var(--shaadi-cream-dark);
+  box-shadow: 0 2px 8px rgba(139, 21, 56, 0.06), inset 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+}
+
+.input-field:focus {
+  border-color: var(--shaadi-red);
+  box-shadow: 0 4px 12px rgba(139, 21, 56, 0.12), inset 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+/* Logo animation */
+@keyframes gentleFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.logo-animate {
+  animation: gentleFloat 4s ease-in-out infinite;
+}
+
+/* Bottom flourish enhancement */
+.bottom-flourish {
+  opacity: 0.25;
+  filter: drop-shadow(0 2px 4px rgba(139, 21, 56, 0.2));
 }
